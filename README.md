@@ -17,7 +17,7 @@ Everything installs cleanly into `~/.CrackMapExec`, and you'll get a global `cra
 
 ##  Installation
 
->  You need to run the install script as **root** (`sudo ./install.sh`) because it creates a symlink to make `crackmapexec` globally available.
+>  You need to run the install script as **root** (`sudo ./install.sh`) because it creates a copy to make `crackmapexec` globally available.
 
 ### Step 1: Clone the repo
 
@@ -37,7 +37,7 @@ This will:
 * Install required system packages
 * Install [Poetry](https://python-poetry.org/)
 * Install Python dependencies via Poetry
-* Symlink `run.sh` to `/usr/local/bin/crackmapexec`
+* cp `run.sh` to `/usr/local/bin/crackmapexec`
 
 ---
 
