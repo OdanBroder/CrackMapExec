@@ -1,49 +1,91 @@
-# No Longer Maintained
+# CrackMapExec – Poetry Edition
 
-This project is no longer mantained due to the existence of a hostile fork.
+This is a fork of [byt3bl33d3r/CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec), updated to use **Poetry** for managing dependencies — no more cluttering up your system Python.
 
-# CrackMapExec
+Everything installs cleanly into `~/.CrackMapExec`, and you'll get a global `crackmapexec` command you can run from anywhere.
 
-<p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/5151193/17577511/d312ceb4-5f3b-11e6-8de5-8822246289fd.jpg" alt="cme"/>
-</p>
+---
 
-You are on the **latest up-to-date** repository of the project CrackMapExec ! 🎉
+##  What’s different?
 
-- 🚧 If you want to report a problem, open un [Issue](https://github.com/mpgn/CrackMapExec/issues) 
-- 🔀 If you want to contribute, open a [Pull Request](https://github.com/mpgn/CrackMapExec/pulls)
-- 💬 If you want to discuss, open a [Discussion](https://github.com/mpgn/CrackMapExec/discussions)
+* Uses **Poetry** instead of `pip` or `pipenv`
+* Keeps everything self-contained in `~/.CrackMapExec`
+* Cleaner environment, easier updates
+* Simple wrapper to use CME globally
 
-# Acknowledgments
-**(These are the people who did the hard stuff)**
+---
 
-This project was originally inspired by:
-- [CredCrack](https://github.com/gojhonny/CredCrack)
-- [smbexec](https://github.com/pentestgeek/smbexec)
-- [smbmap](https://github.com/ShawnDEvans/smbmap)
+##  Installation
 
-Unintentional contributors:
+>  You need to run the install script as **root** (`sudo ./install.sh`) because it creates a symlink to make `crackmapexec` globally available.
 
-- The [Empire](https://github.com/PowerShellEmpire/Empire) project
-- @T-S-A's [smbspider](https://github.com/T-S-A/smbspider) script
-- @ConsciousHacker's partial Python port of Invoke-obfuscation from the [GreatSCT](https://github.com/GreatSCT/GreatSCT) project
+### Step 1: Clone the repo
 
-# Documentation, Tutorials, Examples
-See the project's [wiki](https://www.crackmapexec.wiki/) for documentation and usage examples
+```bash
+git clone git@github.com:OdanBroder/CrackMapExec.git "$HOME/.CrackMapExec"
+cd "$HOME/.CrackMapExec"
+```
 
-# Installation
-Please see the installation instructions on the [official wiki](https://www.crackmapexec.wiki/getting-started/installation)
+### Step 2: Run the install script
 
-# Code Contributors
+```bash
+sudo ./install.sh
+```
 
-Awesome code contributors of CME:
+This will:
 
-[![](https://github.com/Marshall-Hallenbeck.png?size=50)](https://github.com/Marshall-Hallenbeck)
-[![](https://github.com/zblurx.png?size=50)](https://github.com/zblurx)
-[![](https://github.com/NeffIsBack.png?size=50)](https://github.com/NeffIsBack)
-[![](https://github.com/Hackndo.png?size=50)](https://github.com/Hackndo)
-[![](https://github.com/nurfed1?size=50)](https://github.com/nurfed1)
+* Install required system packages
+* Install [Poetry](https://python-poetry.org/)
+* Install Python dependencies via Poetry
+* Symlink `run.sh` to `/usr/local/bin/crackmapexec`
+
+---
+
+##  How to Use
+
+After installation, just run:
+
+```bash
+crackmapexec -h
+```
+
+Behind the scenes, this runs the Poetry version of CME from `~/.CrackMapExec`.
+
+---
 
 
-# To do
-- ~~0wn everything~~
+## Developer Notes
+
+Want to tinker inside the virtual environment?
+
+```bash
+cd ~/.CrackMapExec
+poetry shell
+```
+
+Then run CME directly:
+
+```bash
+crackmapexec smb ...
+```
+
+---
+
+## Uninstall
+
+If you ever want to remove it:
+
+```bash
+sudo rm /usr/local/bin/crackmapexec
+rm -rf ~/.CrackMapExec
+```
+
+---
+
+## Credits
+
+* Huge respect to [@byt3bl33d3r](https://github.com/byt3bl33d3r) for the original tool
+* This fork just makes it easier to manage in 2025 :)
+
+---
+
